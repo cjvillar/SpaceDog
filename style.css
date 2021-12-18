@@ -1,0 +1,91 @@
+.wrapper{
+    /* border: 5px solid black; */
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 800px;
+    height: 700px;
+    transform: translate(-50%, -50%);
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #canvas1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-color: rgb(22, 24, 44); 
+}
+body{
+    background-color: rgb(22, 24, 44);      
+}
+
+.controls{
+    position: absolute;
+    z-index: 10;
+    top: 50px;
+    left:50%;
+    transform: translateX(-50%);
+}
+.controls, select, option{
+    font-size: 25px;
+    color: aliceblue;
+    background-color: transparent;
+} */
+
+/*Background css below */
+
+/* body{
+    background-color: rgb(22, 24, 44);      
+}
+
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 700px;
+    font-size: 25px;
+    color: rgb(22, 24, 44);
+}
+
+#canvasBack {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 700px;
+    background-color: rgb(22, 24, 44);
+}
+
+#slider{
+    width: 100%; 
+}
+p{
+    color: red;
+} */
