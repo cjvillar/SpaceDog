@@ -24,7 +24,7 @@ let keys = [];
 let score = 0;
 let collisionsCount = 0;
 let frame = 0;
-let gameSpeed = 15;
+let gameSpeed = 0;
 
 //dog images
 const dogSprite = new Image();
