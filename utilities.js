@@ -29,22 +29,41 @@ animationStates.forEach((state, index) => {
 });
 //End Dog animation states
 
+//comet
+const numberOfComets = 2;
+const cometArray = []; 
+const comet = new Comet();
+
 function animate(){
+    //background
     gameObjects.forEach(object => {
         object.update();
         object.draw();
         })
+
+    //dog
+    dog.draw();
     
-    let position = Math.floor(gameFrame/staggerFrames) % spriteAnimations[dog.playerState].loc.length;
-    let frameX = dog.spriteWidth * position;
-    let frameY = spriteAnimations[dog.playerState].loc[position].y;
-    ctx3.drawImage(dogSprite, frameX, frameY, dog.spriteWidth, dog.spriteHeight, 
-        dog.x, dog.y, dog.spriteWidth, dog.spriteHeight);
-    gameFrame++;
+    //comet
+    //ctx4.drawImage(comet.x, comet.y, comet.width, comet.height);
+    cometArray.forEach(comet => {
+       comet.update();
+       comet.draw();  
+    });
+
+    //score
+    ScoreBoard();
     requestAnimationFrame(animate);
+    
+    
+    
 };
+
+
+
 animate();
 
+//Event listeners
 window.addEventListener('keydown', function(e){
     keys = [];
     keys[e.keyCode] = true;
@@ -63,3 +82,31 @@ window.addEventListener('keyup', function(e){
     keys[e.keyCode] = false;
     dog.idle()
 });
+
+function ScoreBoard(){
+    ctx4.fillStyle = 'green';
+    ctx4.strokeStyle = 'green';
+    ctx4.fillText('Shield:', 10,40);
+    ctx4.font = '20px Courier New';
+    ctx4.fillText(shield + '%', 95, 40);
+    ctx4.font = '20px Courier New';
+}
+
+ function hit(first, second){
+   return !(   first.x > second.x + second.width ||
+               first.x + first.width < second.x  ||
+               first.y > second.y + second.height||
+               first.y + first.height < second.y); 
+};
+
+
+if(hit(dog.width, comet.width)){
+    console.log('hit');
+    shield--;
+};
+
+for(let i = 0; i < numberOfComets; i++){
+    cometArray.push(new Comet());
+    
+  
+};

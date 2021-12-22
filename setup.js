@@ -21,12 +21,8 @@ canvas4.height = 600
 //globals
 const grid = 80;
 let keys = [];
-let score = 0;
+let shield = 100;
 let collisionsCount = 0;
 let frame = 0;
 let gameSpeed = 0;
-
-//dog images
-const dogSprite = new Image();
-dogSprite.src = 'assets/test_dog_sprite2.png';
 
