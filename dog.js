@@ -12,6 +12,7 @@ class Dog {
         this.frameX = 0;
         this.frameY = 0;
         this.playerState= 'idle';
+       
     }
     run(){ 
         this.playerState = 'run';
@@ -35,7 +36,10 @@ class Dog {
         let frameY = spriteAnimations[dog.playerState].loc[position].y;
         ctx4.drawImage(this.image, frameX, frameY, this.spriteWidth, this.spriteHeight, 
         this.x, this.y, this.spriteWidth, this.spriteHeight);
-        //ctx4.strokeRect(this.x, this.y, this.width, this.height)
+        //ctx4.strokeRect(this.x, this.y, this.spriteWidth, this.spriteHeight)
+        ctx4.beginPath()
+        ctx4.arc(this.x + this.width * 2.5, this.y + this.height * 2.5, this.width * 1.5, 0, Math.PI * 2);
+        ctx4.stroke()
         gameFrame++;
     }   
 }

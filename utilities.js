@@ -1,3 +1,10 @@
+
+let gameOver = false;
+//comet
+const numberOfComets = 2;
+const cometArray = []; 
+const comet = new Comet();
+
 //Dog animation states
 const staggerFrames = 10;
 const spriteAnimations = [];
@@ -16,6 +23,8 @@ const animationStates = [
         frames: 4,
     } 
 ];
+
+
 animationStates.forEach((state, index) => {
     let frames = {
         loc: [],
@@ -29,10 +38,7 @@ animationStates.forEach((state, index) => {
 });
 //End Dog animation states
 
-//comet
-const numberOfComets = 2;
-const cometArray = []; 
-const comet = new Comet();
+
 
 function animate(){
     //background
@@ -41,28 +47,25 @@ function animate(){
         object.draw();
         })
 
-    //dog
-    dog.draw();
-    
-    //comet
-    //ctx4.drawImage(comet.x, comet.y, comet.width, comet.height);
-    cometArray.forEach(comet => {
-       comet.update();
-       comet.draw();  
-    });
+        //hit detection and gameOver screen
+        comet.update();
+        comet.draw();
+        dog.draw();
+        if(shield == 0){
+            gameOver = true;
+            ctx2.textAlign = 'center';
+            ctx2.fillStyle = 'green';
+            ctx2.font = '50px Courier New';
+            ctx2.fillText('GAME OVER!', canvas4.width/2, 250)
+        };
 
     //score
     ScoreBoard();
-    requestAnimationFrame(animate);
-    
-    
-    
-};
-
-
+    if (!gameOver) requestAnimationFrame(animate);
+}
 
 animate();
-
+    
 //Event listeners
 window.addEventListener('keydown', function(e){
     keys = [];
@@ -90,23 +93,9 @@ function ScoreBoard(){
     ctx4.font = '20px Courier New';
     ctx4.fillText(shield + '%', 95, 40);
     ctx4.font = '20px Courier New';
-}
-
- function hit(first, second){
-   return !(   first.x > second.x + second.width ||
-               first.x + first.width < second.x  ||
-               first.y > second.y + second.height||
-               first.y + first.height < second.y); 
 };
 
-
-if(hit(dog.width, comet.width)){
-    console.log('hit');
-    shield--;
-};
 
 for(let i = 0; i < numberOfComets; i++){
-    cometArray.push(new Comet());
-    
-  
-};
+    cometArray.push(new Comet());     
+}

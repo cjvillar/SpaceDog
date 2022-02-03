@@ -16,13 +16,26 @@ class Comet{
        //this.y += this.speed;
        if(this.x + this.width < 0) this.x = canvas.width; //endless horz movment
        if(this.x + this.width < 0) this.x = canvas.width;//endless movement
+
+       cometArray.forEach(comet => {
+         const dx = dog.x - this.x;
+         const dy = dog.y - this.y;
+         const dist = Math.sqrt(dx * dx + dy * dy);
+         if (dist < dog.width/2 + this.width/2){
+             console.log('hit');
+             shield--;
+         }
+         
+     });
      
     }
     draw(){
        ctx4.drawImage(this.image, this.x, this.y, this.width, this.height);
        //ctx4.strokeRect(this.x, this.y, this.width, this.height);
-       
-
+       ctx4.beginPath()
+       ctx4.arc(this.x + this.width/2, this.y + this.height/2 , this.width/3, 0, Math.PI * 2);
+       ctx4.stroke() 
     }
+
  }
  
