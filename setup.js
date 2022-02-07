@@ -5,8 +5,8 @@ canvas.height = 600
 
 const canvas2 = document.getElementById('canvas2');
 const ctx2 = canvas.getContext('2d');
-canvas2.width = 600 
-canvas2.height = 600
+canvas2.width = 2404 
+canvas2.height = 1351
 
 const canvas3 = document.getElementById('canvas3');
 const ctx3 = canvas.getContext('2d');
@@ -25,4 +25,5 @@ let shield = 100;
 let collisionsCount = 0;
 let frame = 0;
 let gameSpeed = 0;
+let gameOver = false;
 

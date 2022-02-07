@@ -38,8 +38,8 @@ class Dog {
         this.x, this.y, this.spriteWidth, this.spriteHeight);
         //ctx4.strokeRect(this.x, this.y, this.spriteWidth, this.spriteHeight)
         ctx4.beginPath()
-        ctx4.arc(this.x + this.width * 2.5, this.y + this.height * 2.5, this.width * 1.5, 0, Math.PI * 2);
-        ctx4.stroke()
+        ctx4.arc(this.x + this.width * 2.5, this.y + this.height * 2.5, this.width * 0.8, 0, Math.PI * 2);
+        ctx4.stroke() //uncomment to see hit box
         gameFrame++;
     }   
 }

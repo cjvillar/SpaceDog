@@ -1,9 +1,13 @@
 
-let gameOver = false;
 //comet
 const numberOfComets = 2;
 const cometArray = []; 
 const comet = new Comet();
+
+//health
+const numberOfHealth = 1;
+const healthArray = []; 
+const health = new Health();
 
 //Dog animation states
 const staggerFrames = 10;
@@ -38,8 +42,6 @@ animationStates.forEach((state, index) => {
 });
 //End Dog animation states
 
-
-
 function animate(){
     //background
     gameObjects.forEach(object => {
@@ -51,18 +53,26 @@ function animate(){
         comet.update();
         comet.draw();
         dog.draw();
+        health.draw();
+        health.update();
         if(shield == 0){
             gameOver = true;
             ctx2.textAlign = 'center';
             ctx2.fillStyle = 'green';
             ctx2.font = '50px Courier New';
-            ctx2.fillText('GAME OVER!', canvas4.width/2, 250)
+            ctx2.fillText('GAME OVER!', canvas4.width/2, 250);
+            ctx1.font = '100px Courier New';
+            ctx1.fillText('Press Spacebar To Continue!', canvas4.width/4, 350);
         };
 
     //score
     ScoreBoard();
     if (!gameOver) requestAnimationFrame(animate);
+    ResetGame();
+        
 }
+   
+    
 
 animate();
     
@@ -95,7 +105,26 @@ function ScoreBoard(){
     ctx4.font = '20px Courier New';
 };
 
+function ResetGame(){
+    if(gameOver){
+    window.addEventListener('keydown', function(e){
+        keys = [];
+    keys[e.keyCode] = true;
+    if(keys[32]){
+        gameOver = false;
+        window.location.reload(); 
+    };
+
+    });
+}
+};
 
 for(let i = 0; i < numberOfComets; i++){
     cometArray.push(new Comet());     
-}
+};
+
+for(let i = 0; i < numberOfHealth; i++){
+    healthArray.push(new Health());     
+};
+    
+
