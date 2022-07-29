@@ -96,6 +96,24 @@ window.addEventListener('keyup', function(e){
     dog.idle()
 });
 
+//Mobile controls
+touchY='';
+touchTreshold = 100;
+window.addEventListener('touchstart', e => {
+   if(touchY = e.changedTouches[0].pageY)
+    dog.run();
+});
+
+window.addEventListener('touchmove', e => {
+    if (gameOver) {window.location.reload();}
+    else dog.fly(); 
+    
+});
+
+window.addEventListener('touchend', e => {
+    dog.idle();
+});
+
 function ScoreBoard(){
     ctx4.fillStyle = 'green';
     ctx4.strokeStyle = 'green';
