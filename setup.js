@@ -26,3 +26,8 @@ let collisionsCount = 0;
 let frame = 0;
 let gameSpeed = 0;
 let gameOver = false;
+
+
+//audio
+const hitSound = new Audio('assets/audio/rumble.flac');
+//hitSound.play();

@@ -5,8 +5,8 @@ class Health {
     this.speed = Math.random() * 2 + 1;
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.width = 100; // TODO: use random to get random sizes
-    this.height = 100; // TODO: use random to get random sizes
+    this.width = 40; // width of image size
+    this.height = 40; //  height of image size
   }
   update() {
     //this.x += Math.random() * 3 + 1.5; //this.speed;
@@ -21,9 +21,11 @@ class Health {
       const dx = dog.x - this.x;
       const dy = dog.y - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < dog.width / 2 + this.width / 2 && shield < 100) {
-        console.log("health");
-        shield++;
+      const collision = (dist < dog.width / 2 + this.width / 2);
+      if (shield < 100 ) {
+         if (collision){
+         console.log("health");
+         shield++;  }  
       }
     });
   }
@@ -38,6 +40,6 @@ class Health {
       0,
       Math.PI * 2
     );
-    //ctx4.stroke(); //uncomment to see hit box
+    ctx4.stroke(); //uncomment to see hit box
   }
 }

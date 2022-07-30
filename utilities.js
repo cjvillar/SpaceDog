@@ -49,11 +49,11 @@ function animate() {
   });
 
   //hit detection and gameOver screen
+  health.update();
+  health.draw();
   comet.update();
   comet.draw();
   dog.draw();
-  health.draw();
-  health.update();
   if (shield == 0) {
     gameOver = true;
     ctx2.textAlign = "center";
@@ -107,12 +107,12 @@ window.addEventListener("touchend", (e) => {
 });
 
 function ScoreBoard() {
-  ctx4.fillStyle = "green";
-  ctx4.strokeStyle = "green";
-  ctx4.fillText("Shield:", 10, 40);
-  ctx4.font = "20px Courier New";
-  ctx4.fillText(shield + "%", 95, 40);
-  ctx4.font = "20px Courier New";
+  ctx2.fillStyle = "green";
+  ctx2.strokeStyle = "green";
+  ctx2.fillText("Shield:", 10, 40);
+  ctx2.font = "20px Courier New";
+  ctx2.fillText(shield + "%", 95, 40);
+  //ctx2.font = "20px Courier New";
 }
 
 function ResetGame() {

@@ -21,9 +21,11 @@ class Comet {
       const dx = dog.x - this.x;
       const dy = dog.y - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < dog.width / 2 + this.width / 2) {
+      if (dist < this.width / 2 + this.width / 2) {
         console.log("hit");
         shield--;
+        hitSound.play();
+        //hitSound.muted = true;
       }
     });
   }
@@ -38,6 +40,8 @@ class Comet {
       0,
       Math.PI * 2
     );
-    //ctx4.stroke(); //uncomment to see hit box
+    ctx4.stroke(); //uncomment to see hit box
   }
 }
+
+
