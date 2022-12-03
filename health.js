@@ -33,13 +33,13 @@ class Health {
     ctx4.drawImage(this.image, this.x, this.y, this.width, this.height);
     //ctx4.strokeRect(this.x, this.y, this.width, this.height);
     ctx4.beginPath();
-    ctx4.arc(
-      this.x + this.width / 3,
-      this.y + this.height / 1.5,
-      this.width,
-      0,
-      Math.PI * 2
-    );
+    // ctx4.arc(
+    //   this.x + this.width / 3,
+    //   this.y + this.height / 1.5,
+    //   this.width,
+    //   0,
+    //   Math.PI * 2
+    // );
     ctx4.stroke(); //uncomment to see hit box
   }
 }

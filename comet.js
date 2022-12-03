@@ -4,7 +4,7 @@ class Comet {
     this.image.src = "assets/comet_left.svg";
     this.speed = Math.random() * 4 + 1;
     this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
+    this.y = Math.random() * canvas.height/1.5;
     this.width = 150; // TODO: use random to get random sizes
     this.height = 75; // TODO: use random to get random sizes
   }
@@ -33,13 +33,13 @@ class Comet {
     ctx4.drawImage(this.image, this.x, this.y, this.width, this.height);
     //ctx4.strokeRect(this.x, this.y, this.width, this.height);
     ctx4.beginPath();
-    ctx4.arc(
-      this.x + this.width / 3,
-      this.y + this.height / 1.5,
-      this.width / 6,
-      0,
-      Math.PI * 2
-    );
+    // ctx4.arc(
+    //   this.x + this.width / 3,
+    //   this.y + this.height / 1.5,
+    //   this.width / 6,
+    //   0,
+    //   Math.PI * 2
+    // );
     ctx4.stroke(); //uncomment to see hit box
   }
 }

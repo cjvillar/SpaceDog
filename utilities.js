@@ -1,5 +1,5 @@
 //comet
-const numberOfComets = 2;
+const numberOfComets = 1;
 const cometArray = [];
 const comet = new Comet();
 
